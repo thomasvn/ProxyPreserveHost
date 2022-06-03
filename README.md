@@ -26,7 +26,12 @@ Initial question: what does `ProxyPreserveHost` do and what impact does it have?
 
 ```bash
 docker-compose up --build
+
+# Modify your /etc/hosts
+echo "127.0.0.1 my-experiment.com" | sudo tee -a /etc/hosts
 ```
+
+Visit "http://my-experiment.com:8080" in your browser.
 
 ## References
 
@@ -39,13 +44,14 @@ docker-compose up --build
 - Experiment
   - <https://docs.docker.com/compose/gettingstarted/>
   - <https://hub.docker.com/_/httpd>
+  - <http://www.apachetutor.org/admin/reverseproxies>
 
 <!-- DEBUG
 docker run --rm -it httpd:latest bash
 -->
 
 <!-- TODO
-- enable the proxy in httpd
+- Writup findings for "ProxyPreserveHost On"
+- Investigate `ProxyPass` and `ProxyPassReverse`
 - is there even a reason to use a proxy within Kubernetes? All Ingress/Routes are already proxies
-- Also investigate `ProxyPass` and `ProxyPassReverse`
 -->

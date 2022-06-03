@@ -2,8 +2,8 @@ version: "3.9"
 services:
   web:
     build: ./app
-    ports:
-      - "8000:5000"
+    # ports:
+    #   - "8000:5000"
     volumes:
       - ./app:/code
     environment:
@@ -13,4 +13,4 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./proxy/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./proxy/my-httpd.conf:/usr/local/apache2/conf/httpd.conf
