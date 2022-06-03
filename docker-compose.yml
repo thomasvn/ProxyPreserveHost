@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    build: ./app
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./app:/code
+    environment:
+      FLASK_ENV: development
+  proxy:
+    image: "httpd:latest"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./proxy/httpd.conf:/usr/local/apache2/conf/httpd.conf
